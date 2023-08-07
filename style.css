@@ -5,7 +5,7 @@
     --text: #171700;
     --primary: #845EC2;
     --secondary: #F3C5FF;
-    --accent: rgb(255, 255, 172);
+    --accent: #f0f0d1;
     --error: #F6906C;
     --success: #8C981F;
 }
@@ -24,4 +24,16 @@ body {
     color: var(--text);
     font-size: 1.5rem;
     font-weight: 300;
+
+}
+
+.container {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: 0.4fr 4fr 0.25fr;
+}
+
+.main,
+.footer {
+    background-color: var(--accent);
 }
