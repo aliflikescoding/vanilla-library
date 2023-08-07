@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap');
+
 :root {
     --bakcground: #FEFEDF;
     --text: #171700;
     --primary: #845EC2;
     --secondary: #F3C5FF;
-    --accent: #ffff99;
+    --accent: rgb(255, 255, 172);
     --error: #F6906C;
     --success: #8C981F;
 }
@@ -14,4 +16,12 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: var(--bakcground);
+    color: var(--text);
+    font-size: 1.5rem;
+    font-weight: 300;
 }
