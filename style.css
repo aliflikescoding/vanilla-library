@@ -3,8 +3,9 @@
 :root {
     --bakcground: #FEFEDF;
     --text: #171700;
-    --primary: #845EC2;
-    --secondary: #F3C5FF;
+    --primary: #F3C5FF;
+    --secondary: #845EC2;
+    --gradient: linear-gradient(to right, var(--primary) , var(--secondary));
     --accent: #f0f0d1;
     --error: #F6906C;
     --success: #8C981F;
@@ -33,7 +34,37 @@ body {
     grid-template-rows: 0.4fr 4fr 0.25fr;
 }
 
-.main,
-.footer {
-    background-color: var(--accent);
+.button {
+    border: none;
+    background-color: auto;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 2rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.button:hover {
+    transform: scale(0.95);
+}
+
+.button-primary {
+    background-color: var(--primary);
+    color: var(--bakcground);
+}
+
+.button-secondary {
+    background-color: var(--bakcground);
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+}
+
+.button-error {
+    background-color: var(--error);
+}
+
+.button-success {
+    background-color: var(--success);
+    color: var(--bakcground);
 }
