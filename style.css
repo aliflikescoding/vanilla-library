@@ -35,6 +35,7 @@ body {
 }
 
 .button {
+    text-align: center;
     border: none;
     background-color: auto;
     padding: 5px 15px;
@@ -67,4 +68,16 @@ body {
 .button-success {
     background-color: var(--success);
     color: var(--bakcground);
+}
+
+/* Header Area */
+.header {
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header > .button {
+    margin-right: 5px;
 }
