@@ -31,8 +31,11 @@ body {
 .container {
     display: grid;
     min-height: 100vh;
+    min-width: 100vw;
     grid-template-rows: 0.4fr 4fr 0.25fr;
 }
+
+/* button styling */
 
 .button {
     text-align: center;
@@ -41,13 +44,14 @@ body {
     padding: 5px 15px;
     border-radius: 5px;
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .button:hover {
     transform: scale(0.95);
+    opacity: 85%;
 }
 
 .button-primary {
@@ -70,6 +74,35 @@ body {
     color: var(--bakcground);
 }
 
+/* card styling */
+.card {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 350px;
+    text-align: center;
+    background-color: var(--bakcground);
+    border-radius: 15px;
+}
+
+.card > *:first-child {
+    margin-top: 10px;
+}
+
+.card > *:nth-child(6) {
+    margin-bottom: 10px;
+}
+
+.card > * {
+    margin: 5px 15px;
+}
+
+.main,
+.footer {
+    background-color: var(--accent);
+}
+
 /* Header Area */
 .header {
     display: flex;
@@ -81,3 +114,4 @@ body {
 .header > .button {
     margin-right: 5px;
 }
+
