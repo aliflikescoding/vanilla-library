@@ -75,7 +75,6 @@ body {
 
 /* card styling */
 .card {
-    margin: 15px;
     display: flex;
     flex-direction: column;
     height: auto;
@@ -128,7 +127,10 @@ body {
 }
 
 .main-area-2 {
-
+    width: 100%;
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, auto));
 }
 
 /* footer */
