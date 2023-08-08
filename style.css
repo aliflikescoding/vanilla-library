@@ -128,5 +128,13 @@ body {
 }
 
 .main-area-2 {
-    
+
+}
+
+/* footer */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
 }
