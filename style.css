@@ -30,8 +30,7 @@ body {
 
 .container {
     display: grid;
-    min-height: 100vh;
-    min-width: 100vw;
+    height: 100vh;
     grid-template-rows: 0.4fr 4fr 0.25fr;
 }
 
@@ -60,7 +59,7 @@ body {
 }
 
 .button-secondary {
-    background-color: var(--bakcground);
+    background: transparent;
     color: var(--secondary);
     border: 1px solid var(--secondary);
 }
@@ -115,3 +114,19 @@ body {
     margin-right: 5px;
 }
 
+/* main */
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: start;
+    align-items: center;
+}
+
+.main-area-1 {
+    padding: 15px;
+}
+
+.main-area-2 {
+    
+}
