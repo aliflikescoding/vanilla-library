@@ -7,6 +7,50 @@
     <title>Document</title>
 </head>
 <body>
+    <div id ="bookFormBackground" class=""></div>
+    <div id="bookForm" class="form not-active">
+        <h2>Add a book</h2>
+        <form action="">
+            <div class="form_group">
+                <label for="book_title">Title</label>
+                <input type="text" name="book_title" id="book_title">
+            </div>
+            <div class="form_group">
+                <label for="book_author">Author</label>
+                <input type="text" name="book_author" id="book_author">
+            </div>
+            <div class="form_group">
+                <label for="book_page">Page</label>
+                <input type="text" name="book_page" id="book_page">
+            </div>
+            <div class="form_group">
+                <label for="book_desc">Describe The 
+                    Book</label>
+                <textarea name="book_desc" id="book_desc" cols="30" rows="10"></textarea>
+            </div>
+            <div class="form_group">
+                <p>have you read the book?</p>
+                <div class="form_group_radio">
+                    <div>
+                        <input type="radio" name="status" id="read">
+                        <span class="checkmark"></span>
+                        <label for="read">Read</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="status" id="Not read">
+                        <span class="checkmark"></span>
+                        <label for="Not read">Not Read</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form_group">
+                <div class="form_group_radio">
+                    <button id="cancelButton" class="button button-error">cancel</button>
+                    <input type="submit" value="Add Book" class="button button-primary">
+                </div>
+            </div>
+        </form>
+    </div>
     <div class="container">
         <div class="header">
             <h1 class="title">Ulibrary</h1>
@@ -14,7 +58,7 @@
         </div>
         <div class="main">
             <div class="main-area-1">
-                <button class="button button-secondary">+ Add A Book</button>
+                <button id="addButton" class="button button-secondary">+ Add A Book</button>
             </div>
             <div class="main-area-2">
                 <div class="card">
