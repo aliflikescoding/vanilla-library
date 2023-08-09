@@ -3,6 +3,7 @@ let addButton = document.querySelector('#addButton');
 let bookForm = document.querySelector('#bookForm');
 let bookFormBackground = document.querySelector('#bookFormBackground');
 let cancelButton = document.querySelector('#cancelButton');
+let myForm = document.querySelector('#myForm');
 
 let myLibrary = [];
 
@@ -20,6 +21,7 @@ addButton.addEventListener('click', () => {
 });
 cancelButton.addEventListener('click', () => {
     event.preventDefault();
+    myForm.reset();
     hideForm();
 });
 
