@@ -167,9 +167,7 @@ body {
 
 .form_group > input:focus,
 .form_group > textarea:focus {
-    outline: 1.5px solid var(--secondary);
-    background-color: var(--primary);
-    color: var(--bakcground);
+    outline: 2.5px solid var(--secondary);
 }
 
 .form_group_radio {
