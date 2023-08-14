@@ -6,6 +6,8 @@ let cancelButton = document.querySelector('#cancelButton');
 let submitButton = document.querySelector('#submitButton');
 let myForm = document.querySelector('#myForm');
 
+let mainAreaTwo = document.querySelector('.main-area-2');
+
 let bookTitle = document.querySelector('#book_title');
 let bookAuthor = document.querySelector('#book_author');
 let bookPage = document.querySelector('#book_page');
@@ -13,15 +15,16 @@ let bookDesc = document.querySelector('#book_desc');
 let readButton = document.querySelector('#readButton');
 let readButtonTwo = document.querySelector('#readButtonTwo');
 
+let booksInLibrary = 0;
 let myLibrary = [];
 
 /* Object Constructors */
-function Book(title, author, page, status, description) {
+function Book(title, author, page, description, status) {
   this.title = title;
   this.author = author;
   this.page = page;
-  this.status = status;
   this.description = description
+  this.status = status;
 }
 
 /* events */
@@ -52,7 +55,6 @@ function hideForm() {
 }
 function addBookToLibrary(book) {
   myLibrary.push(book)
-  console.log(myLibrary)
 }
 
 function createBook() {
@@ -69,9 +71,59 @@ function createBook() {
         status = false;
       }
       else {}
-      let book = new Book(title, author, pages, status, desc);
+      let book = new Book(title, author, pages, desc,  status);
       addBookToLibrary(book);
+      booksInLibrary++;
+      showLibrary(booksInLibrary);
       hideForm();
       myForm.reset();
     }
+}
+
+function showLibrary(booksInLibrary) {
+  for (let i = booksInLibrary-1; i < myLibrary.length; i++) {
+    let obj = myLibrary[i];
+    let cardObj = document.createElement("div");
+    cardObj.classList.add('card');
+    Object.getOwnPropertyNames(obj).forEach(key => {
+      if (key == "title") {
+        let titleObj = document.createElement("h2");
+        titleObj.innerText = `${obj[key]}`;
+        cardObj.appendChild(titleObj);
+      }
+      else if (key == "author") {
+        let authorObj = document.createElement("p");
+        authorObj.innerText = `${obj[key]}`;
+        cardObj.appendChild(authorObj);
+      }
+      else if (key == "page") {
+        let pageObj = document.createElement("p");
+        pageObj.innerText = `${obj[key]}`;
+        cardObj.appendChild(pageObj);
+      }
+      else if (key == "description") {
+        let descriptionObj = document.createElement("p");
+        descriptionObj.innerText = `${obj[key]}`;
+        cardObj.appendChild(descriptionObj);
+      }
+      else if (key == "status") {
+        let statusObj = document.createElement("button");
+        statusObj.classList.add('button');
+        if (obj[key] == false) {
+          statusObj.innerText = "Not Read";
+          statusObj.classList.add('button-secondary');
+        }
+        else {
+          statusObj.innerText = "Read";
+          statusObj.classList.add('button-primary');
+        }
+        cardObj.appendChild(statusObj);
+      }
+    });
+    let deleteObjButton = document.createElement("button");
+    deleteObjButton.classList.add('button', 'button-error');
+    deleteObjButton.innerText = "Remove";
+    cardObj.appendChild(deleteObjButton);
+    mainAreaTwo.appendChild(cardObj);
+  }
 }

@@ -77,7 +77,7 @@ body {
 .card {
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: fit-content;
     width: 350px;
     text-align: center;
     background-color: var(--bakcground);
@@ -196,6 +196,7 @@ textarea {
 }
 
 .not-active {
+    opacity: 0;
     z-index: -1;
 }
 
