@@ -14,9 +14,23 @@ let bookPage = document.querySelector('#book_page');
 let bookDesc = document.querySelector('#book_desc');
 let readButton = document.querySelector('#readButton');
 let readButtonTwo = document.querySelector('#readButtonTwo');
+// let removeButton = document.querySelector('.remove-button');
 
 let booksInLibrary = 0;
-let myLibrary = [];
+let myLibrary = [
+  {
+    "title": "The Life Of John Doe",
+    "author": "John Doe",
+    "page": "50",
+    "description": "my life in a short book",
+    "status": false
+  },
+];
+
+window.onload = function() {
+  showLibrary(booksInLibrary);
+};
+
 
 /* Object Constructors */
 function Book(title, author, page, description, status) {
@@ -40,6 +54,36 @@ submitButton.addEventListener('click', () => {
   event.preventDefault();
   createBook();
 });
+
+/* special event */
+mainAreaTwo.addEventListener('click', function(event) {
+  if (event.target.classList.contains('remove-button')) {
+    let title = event.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
+    let foundObject = myLibrary.findIndex(obj => obj.title === title);
+    myLibrary.splice(foundObject, 1)
+    booksInLibrary--;
+    event.target.parentElement.remove()
+  }
+  else if (event.target.classList.contains('read-button')) {
+    let title = event.target.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
+    let foundObject = myLibrary.find(obj => obj.title === title);
+    state = foundObject.status;
+    if (state === false) {
+      foundObject.status = true;
+      event.target.classList.remove("button-secondary");
+      event.target.classList.add("button-primary");
+      event.target.innerText = "Read";
+    }
+    else {
+      foundObject.status = false;
+      event.target.classList.remove("button-primary");
+      event.target.classList.add("button-secondary");
+      event.target.innerText = "Not Read";
+    }
+  }
+  else {}
+});
+
 
 /* functions */
 function showForm() {
@@ -81,7 +125,7 @@ function createBook() {
 }
 
 function showLibrary(booksInLibrary) {
-  for (let i = booksInLibrary-1; i < myLibrary.length; i++) {
+  for (let i = booksInLibrary; i < myLibrary.length; i++) {
     let obj = myLibrary[i];
     let cardObj = document.createElement("div");
     cardObj.classList.add('card');
@@ -111,19 +155,20 @@ function showLibrary(booksInLibrary) {
         statusObj.classList.add('button');
         if (obj[key] == false) {
           statusObj.innerText = "Not Read";
-          statusObj.classList.add('button-secondary');
+          statusObj.classList.add('button-secondary', 'read-button');
         }
         else {
           statusObj.innerText = "Read";
-          statusObj.classList.add('button-primary');
+          statusObj.classList.add('button-primary', 'read-button');
         }
         cardObj.appendChild(statusObj);
       }
     });
     let deleteObjButton = document.createElement("button");
-    deleteObjButton.classList.add('button', 'button-error');
+    deleteObjButton.classList.add('button', 'button-error', 'remove-button');
     deleteObjButton.innerText = "Remove";
     cardObj.appendChild(deleteObjButton);
     mainAreaTwo.appendChild(cardObj);
   }
 }
+
