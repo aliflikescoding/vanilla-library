@@ -4,7 +4,7 @@
 
 ## Output
 
-Visit [The Live Page](https://aliflikescoding.github.io/vanilla-calculator/) to view the details
+Visit [The Live Page](https://aliflikescoding.github.io/vanilla-library/) to view the details
 
 ## Description
 
